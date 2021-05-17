@@ -11,11 +11,13 @@ document.getElementById('start').addEventListener('click', game)
 document.getElementById('test').addEventListener('click', test)
 function game() {
   scoreCounter = 0
-  mole = Math.floor((Math.random() * 16) + 1)
+  //mole = Math.floor((Math.random() * 16) + 1)
+  mole = 1
   if (mole === 1) {
     document.getElementById("img1").style.display = 'inline'
     document.getElementById('blank1').style.display = 'none'
     document.getElementById('img1').addEventListener('click', yham)
+    document.getElementById('img1').addEventListener('click', imgf1)
   } else if (mole === 2) {
     document.getElementById("img2").style.display = 'inline'
     document.getElementById('blank2').style.display = 'none'
@@ -85,6 +87,11 @@ function game() {
       scoreCounter = '00' + score
     }
     document.getElementById('score-counter').value = scoreCounter
+  }
+  function imgf1 () {
+    mole = 0
+    document.getElementById("img1").style.display = 'none'
+    document.getElementById('blank1').style.display = 'inline'
   }
 }
 
