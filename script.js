@@ -1,7 +1,5 @@
 // declare all the variables
 let score = 0
-let counter = 0
-let scoreCounter = 0
 let mole1 = 0
 let mole2 = 0
 let mole3 = 0
@@ -217,7 +215,7 @@ function game () {
     document.getElementById('img16').style.display = 'none'
     document.getElementById('blank16').style.display = 'inline'
   }
-  //automatically stop displaying all moles after the timer runs out
+  // automatically stop displaying all moles after the timer runs out
   setTimeout(function () {
     document.getElementById('img1').style.display = 'none'
     document.getElementById('blank1').style.display = 'inline'
@@ -251,10 +249,10 @@ function game () {
     document.getElementById('blank15').style.display = 'inline'
     document.getElementById('img16').style.display = 'none'
     document.getElementById('blank16').style.display = 'inline'
-    //tell them whether they got all off the moles based off their score
+    // tell them whether they got all off the moles based off their score
     if (score < 4) {
       document.getElementById('win-statement').innerHTML = "Sorry, you didn't get all of the moles"
-    } else if (score = 4) {
+    } else if (score === 4) {
       document.getElementById('win-statement').innerHTML = 'Congratulations, you got all of the moles'
     }
   }, 2000)
