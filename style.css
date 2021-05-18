@@ -87,3 +87,11 @@ body {
  background-image: url('images/background.png');
  background-color: lightblue;
 }
+
+p {
+  display: inline;
+}
+
+img {
+  padding: 10px;
+}
