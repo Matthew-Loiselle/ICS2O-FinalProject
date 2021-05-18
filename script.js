@@ -6,19 +6,15 @@ let mole1 = 0
 let mole2 = 0
 let mole3 = 0
 let mole4 = 0
-let curday = 0
-let curmonth = 0
-let curyear = 0
-let time = 0
 let i = 0
 let mallet = document.getElementById('mallet')
-//get mouse coordinates and move mallet.png to it's location every time it moves
+// get mouse coordinates and move mallet.png to it's location every time it moves
 const onMouseMove = event => {
   mallet.style.left = event.pageX + 'px'
   mallet.style.top = event.pageY + 'px'
 }
 document.addEventListener('mousemove', onMouseMove)
-//create all the event listeners on the mole images to trigger yham(you hit a mole) when they are clicked
+// create all the event listeners on the mole images to trigger yham(you hit a mole) when they are clicked
 document.getElementById('start').addEventListener('click', game)
 document.getElementById('test').addEventListener('click', test)
 document.getElementById('img1').addEventListener('click', yham)
@@ -89,7 +85,7 @@ function game() {
       mole4 = Math.floor((Math.random() * 4) + 13)
     }
   }
-  //display the moles and based on which numbers are randomly chosen, also create event listeners for the chosen moles, and set the display for the corresponding blank image to 'none' 
+  // display the moles and based on which numbers are randomly chosen, also create event listeners for the chosen moles, and set the display for the corresponding blank image to 'none' 
   if (mole1 === 1) {
     document.getElementById("img1").style.display = 'inline'
     document.getElementById('blank1').style.display = 'none'
@@ -158,7 +154,7 @@ function game() {
     document.getElementById('blank16').style.display = 'none'
     document.getElementById('img16').addEventListener('click', f16)
   }
-  //when the event listeners attached to the moles are triggered, four of these functions will be triggered to stop displaying the moles, and display the corresponding blank image
+  // when the event listeners attached to the moles are triggered, four of these functions will be triggered to stop displaying the moles, and display the corresponding blank image
   function f1() {
     document.getElementById('img1').style.display = 'none'
     document.getElementById('blank1').style.display = 'inline'
@@ -263,15 +259,12 @@ function game() {
     } else if (score = 4) {
       document.getElementById('win-statement').innerHTML = 'Congratulations, you got all of the moles'
     }
-  }, 2000);
+  }, 2000)
 }
-//add points to the score whenever a mole is hit, and diaplay that score
+// add points to the score whenever a mole is hit, and diaplay that score
 function yham() {
   score++
   document.getElementById('score-counter').innerHTML = (score)
 }
 
-//this is only for when I had to test something, it will be removed when I don't need it
-function test() {
-  alert(mole1 + mole2 + mole3 + mole4)
-}
+

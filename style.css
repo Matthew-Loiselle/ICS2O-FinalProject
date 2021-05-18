@@ -4,7 +4,7 @@
 
 #all-images {
   margin-top: 10%;
-  margin-left: 30%; 
+  margin-left: 30%;
   width: 40%;
   border: 1px solid black;
 }
@@ -77,15 +77,15 @@
   margin-left: 47%;
 }
 
-#mallet{
-  position:absolute;
-  transform:translate(-50%,-50%);
+#mallet {
+  position: absolute;
+  transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
 body {
- background-image: url('images/background.png');
- background-color: lightblue;
+  background-image: url('images/background.png');
+  background-color: lightblue;
 }
 
 p {
@@ -97,5 +97,5 @@ img {
 }
 
 #win-statement {
-font-size: 120%;
+  font-size: 120%;
 }
