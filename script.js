@@ -18,7 +18,7 @@ const onMouseMove = event => {
   mallet.style.top = event.pageY + 'px'
 }
 document.addEventListener('mousemove', onMouseMove)
-//create all the event listeners on the mole images
+//create all the event listeners on the mole images to trigger yham(you hit a mole) when they are clicked
 document.getElementById('start').addEventListener('click', game)
 document.getElementById('test').addEventListener('click', test)
 document.getElementById('img1').addEventListener('click', yham)
@@ -37,7 +37,6 @@ document.getElementById('img13').addEventListener('click', yham)
 document.getElementById('img14').addEventListener('click', yham)
 document.getElementById('img15').addEventListener('click', yham)
 document.getElementById('img16').addEventListener('click', yham)
-
 
 function game() {
   //make sure all the mole images are not displayed and all blank spots are displayed 
@@ -73,16 +72,24 @@ function game() {
   document.getElementById('blank15').style.display = 'inline'
   document.getElementById('img16').style.display = 'none'
   document.getElementById('blank16').style.display = 'inline'
+
   //reset the counter variable, the score variable, and the scoreCounter variable.
   counter = 0
   score = 0
   scoreCounter = 0
   //randomize four seperate variables, each with their own range so the variables never overlap and are properly spaced out.
-  mole1 = Math.floor((Math.random() * 4) + 1)
-  mole2 = Math.floor((Math.random() * 4) + 5)
-  mole3 = Math.floor((Math.random() * 4) + 9)
-  mole4 = Math.floor((Math.random() * 4) + 13)
-  //display the moles and based on which numbers are randomly chosen
+  for (i = 0; i < 5; i++) {
+    if (i === 1) {
+      mole1 = Math.floor((Math.random() * 4) + 1)
+    } else if (i === 2) {
+      mole2 = Math.floor((Math.random() * 4) + 5)
+    } else if (i === 3) {
+      mole3 = Math.floor((Math.random() * 4) + 9)
+    } else if (i === 4) {
+      mole4 = Math.floor((Math.random() * 4) + 13)
+    }
+  }
+  //display the moles and based on which numbers are randomly chosen, also create event listeners for the chosen moles, and set the display for the corresponding blank image to 'none' 
   if (mole1 === 1) {
     document.getElementById("img1").style.display = 'inline'
     document.getElementById('blank1').style.display = 'none'
@@ -151,87 +158,72 @@ function game() {
     document.getElementById('blank16').style.display = 'none'
     document.getElementById('img16').addEventListener('click', f16)
   }
+  //when the event listeners attached to the moles are triggered, four of these functions will be triggered to stop displaying the moles, and display the corresponding blank image
   function f1() {
-    counter++
     document.getElementById('img1').style.display = 'none'
     document.getElementById('blank1').style.display = 'inline'
   }
   function f2() {
-    counter++
     document.getElementById('img2').style.display = 'none'
     document.getElementById('blank2').style.display = 'inline'
   }
   function f3() {
-    counter++
     document.getElementById('img3').style.display = 'none'
     document.getElementById('blank3').style.display = 'inline'
   }
   function f4() {
-    counter++
     document.getElementById('img4').style.display = 'none'
     document.getElementById('blank4').style.display = 'inline'
   }
   function f5() {
-    counter++
     document.getElementById('img5').style.display = 'none'
     document.getElementById('blank5').style.display = 'inline'
   }
   function f6() {
-    counter++
     document.getElementById('img6').style.display = 'none'
     document.getElementById('blank6').style.display = 'inline'
   }
   function f7() {
-    counter++
     document.getElementById('img7').style.display = 'none'
     document.getElementById('blank7').style.display = 'inline'
   }
   function f8() {
-    counter++
     document.getElementById('img8').style.display = 'none'
     document.getElementById('blank8').style.display = 'inline'
   }
   function f9() {
-    counter++
     document.getElementById('img9').style.display = 'none'
     document.getElementById('blank9').style.display = 'inline'
   }
   function f10() {
-    counter++
     document.getElementById('img10').style.display = 'none'
     document.getElementById('blank10').style.display = 'inline'
   }
   function f11() {
-    counter++
     document.getElementById('img11').style.display = 'none'
     document.getElementById('blank11').style.display = 'inline'
   }
   function f12() {
-    counter++
     document.getElementById('img12').style.display = 'none'
     document.getElementById('blank12').style.display = 'inline'
   }
   function f13() {
-    counter++
     document.getElementById('img13').style.display = 'none'
     document.getElementById('blank13').style.display = 'inline'
   }
   function f14() {
-    counter++
     document.getElementById('img14').style.display = 'none'
     document.getElementById('blank14').style.display = 'inline'
   }
   function f15() {
-    counter++
     document.getElementById('img15').style.display = 'none'
     document.getElementById('blank15').style.display = 'inline'
   }
   function f16() {
-    counter++
     document.getElementById('img16').style.display = 'none'
     document.getElementById('blank16').style.display = 'inline'
   }
-
+  //automatically stop displaying all moles after the timer runs out
   setTimeout(function () {
     document.getElementById('img1').style.display = 'none'
     document.getElementById('blank1').style.display = 'inline'
@@ -265,14 +257,21 @@ function game() {
     document.getElementById('blank15').style.display = 'inline'
     document.getElementById('img16').style.display = 'none'
     document.getElementById('blank16').style.display = 'inline'
-  }, 2000); 
+    //tell them whether they got all off the moles based off their score
+    if (score < 4) {
+      document.getElementById('win-statement').innerHTML = "Sorry, you didn't get all of the moles"
+    } else if (score = 4) {
+      document.getElementById('win-statement').innerHTML = 'Congratulations, you got all of the moles'
+    }
+  }, 2000);
 }
+//add points to the score whenever a mole is hit, and diaplay that score
 function yham() {
   score++
   document.getElementById('score-counter').innerHTML = (score)
 }
 
-
+//this is only for when I had to test something, it will be removed when I don't need it
 function test() {
   alert(mole1 + mole2 + mole3 + mole4)
 }
