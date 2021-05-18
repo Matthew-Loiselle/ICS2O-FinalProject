@@ -81,7 +81,7 @@ function game () {
       mole4 = Math.floor((Math.random() * 4) + 13)
     }
   }
-  // display the moles and based on which numbers are randomly chosen, also create event listeners for the chosen moles, and set the display for the corresponding blank image to 'none' 
+  // display the moles and based on which numbers are randomly chosen, also create event listeners for the chosen moles, and set the display for the corresponding blank image to 'none'
   if (mole1 === 1) {
     document.getElementById('img1').style.display = 'inline'
     document.getElementById('blank1').style.display = 'none'
